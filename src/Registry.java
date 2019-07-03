@@ -2,13 +2,20 @@ import java.util.*;
 
 public class Registry {
     Map<String, List<String>> accounting = new HashMap<>();
-    List <String> books = new ArrayList<>();
 
-    public void addBookToRegister(String date, String book){
-        books.add(book);
-        accounting.put(date, books);
+    public void addBookToRegister(String date, String book) {
+        if (!accounting.containsKey(date)) {
+            List<String> books = new ArrayList<>();
+            books.add(book);
+            accounting.put(date, books);
+        } else {
+            List<String> books2;
+            books2 = accounting.get(date);
+            books2.add(book);
+            accounting.put(date, books2);
+
+        }
     }
-
     public void takeABook(String date, String book) {
         addBookToRegister(date, book);
         System.out.println("Today " + date + " you took the book " + book);
@@ -16,8 +23,8 @@ public class Registry {
 
     public void whenTheBookIsTaken(String d) {
         if (accounting.containsKey(d)) {
-            System.out.println("On this date " + d + " didn't take a book");
-        } else System.out.println("On this date " + d + " took this book " + accounting.get(d));
+            System.out.println("On this date " + d + " took this book " + accounting.get(d));
+        } else System.out.println("On this date " + d + " didn't take a book");
     }
 
     public void loadRegister() {
@@ -37,9 +44,7 @@ public class Registry {
 
     public void getBookInformation() {
         System.out.println("\nAll issued books: ");
-        for (String value : books) {
-            System.out.println(value);
-        }
+        System.out.println(accounting.values());
     }
 
     public void setDate() {

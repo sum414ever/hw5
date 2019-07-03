@@ -15,7 +15,7 @@ public class Main {
 //        //This method shows all dates when books are issued.
         registry.getDateInformation();
 
-//        //This method shows all issued books
+        //This method shows all issued books
         registry.getBookInformation();
 
         registry.setDate();
