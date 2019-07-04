@@ -3,18 +3,18 @@ package library;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddBook {
+public class AddBookMethod {
 
     public static void addBook(String date, String book) {
-        if (!LoadRegister.getAccounting().containsKey(date)) {
+        if (!Register.getAccounting().containsKey(date)) {
             List<String> list = new ArrayList<>();
             list.add(book);
-            LoadRegister.getAccounting().put(date, list);
+            Register.getAccounting().put(date, list);
         } else {
             List<String> list2;
-            list2 = LoadRegister.getAccounting().get(date);
+            list2 = Register.getAccounting().get(date);
             list2.add(book);
-            LoadRegister.getAccounting().put(date, list2);
+            Register.getAccounting().put(date, list2);
         }
     }
 }

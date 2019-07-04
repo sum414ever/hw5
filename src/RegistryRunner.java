@@ -13,24 +13,23 @@ public class RegistryRunner {
         System.out.println("4. Search book by date");
         System.out.println("5. Exit");
         Scanner sc = new Scanner(System.in);
-        int scan;
-        scan = sc.nextInt();
+        int scan= sc.nextInt();
         do {
             switch (scan) {
                 case 1:
-                    AddBookInConsole addBook = new AddBookInConsole();
+                    AddBookInConsoleMethod addBook = new AddBookInConsoleMethod();
                     addBook.addBookViaConsole();
                     break;
                 case 2:
-                    GetDateInformation getDate = new GetDateInformation();
+                    DateInformationProvider getDate = new DateInformationProvider();
                     getDate.getDateInformation();
                     break;
                 case 3:
-                    GetBookInformation getBook = new GetBookInformation();
+                    BookInformationProvider getBook = new BookInformationProvider();
                     getBook.getBookInformation();
                     break;
                 case 4:
-                    ShowBookByDate showBook = new ShowBookByDate();
+                    ReferenceInformation showBook = new ReferenceInformation();
                     showBook.showBookByDate();
                     break;
                 case 5:
