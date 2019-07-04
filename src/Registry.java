@@ -2,37 +2,41 @@ import java.util.*;
 
 public class Registry {
     Map<String, List<String>> accounting = new HashMap<>();
+    Scanner sc = new Scanner(System.in);
+    static String scan;
 
-    public void addBookToRegister(String date, String book) {
+    public void addBookViaConsole(){
+        System.out.println("Input date in format 'dd/mm/yyyy-the book name' ");
+        scan = sc.next();
+        String[] parts = scan.split("-");
+        String date = parts[0];
+        String book = parts[1];
+        addBook(date,book);
+        System.out.println("You took book " + book + " on this date " + date);
+        sc = new Scanner(System.in);
+        scan=sc.next();
+    }
+
+    public void addBook(String date, String book) {
         if (!accounting.containsKey(date)) {
-            List<String> books = new ArrayList<>();
-            books.add(book);
-            accounting.put(date, books);
-        } else {
-            List<String> books2;
-            books2 = accounting.get(date);
-            books2.add(book);
-            accounting.put(date, books2);
+            List<String> list = new ArrayList<>();
+            list.add(book);
+            accounting.put(date, list);
 
+        } else {
+            List<String> list2;
+            list2 = accounting.get(date);
+            list2.add(book);
+            accounting.put(date, list2);
         }
     }
-    public void takeABook(String date, String book) {
-        addBookToRegister(date, book);
-        System.out.println("Today " + date + " you took the book " + book);
-    }
 
-    public void whenTheBookIsTaken(String d) {
-        if (accounting.containsKey(d)) {
-            System.out.println("On this date " + d + " took this book " + accounting.get(d));
-        } else System.out.println("On this date " + d + " didn't take a book");
-    }
-
-    public void loadRegister() {
-        addBookToRegister("26/01/2019", "In Search of Lost Time by Marcel Proust");
-        addBookToRegister("26/02/2019", "Don Quixote by Miguel de Cervantes");
-        addBookToRegister("26/01/2018", "Ulysses by James Joyce");
-        addBookToRegister("20/01/2019", "The Great Gatsby by F. Scott Fitzgerald");
-        addBookToRegister("26/05/2019", "Moby Dick by Herman Melville");
+    public void showBookByDate() {
+        System.out.println("Input date in format 'dd/mm/yyyy' ");
+        scan = sc.next();
+        if (accounting.containsKey(scan)) {
+            System.out.println("On this date " + scan + " took this book " + accounting.get(scan));
+        } else System.out.println("On this date " + scan + " didn't take a book");
     }
 
     public void getDateInformation() {
@@ -47,16 +51,12 @@ public class Registry {
         System.out.println(accounting.values());
     }
 
-    public void setDate() {
-        String scan;
-        do {
-            System.out.println("\nEnter dates in format dd/MM/yyyy");
-            Scanner sc = new Scanner(System.in);
-            scan = sc.next();
-            whenTheBookIsTaken(scan);
-            System.out.println("If you want check other date press yes/no");
-            scan = sc.next();
-        }while (scan.equals("yes"));
+    public void loadRegister() {
+        addBook("26/01/2019","In Search of Lost Time by Marcel Proust");
+        addBook("26/02/2019","Don Quixote by Miguel de Cervantes");
+        addBook("26/01/2018","Ulysses by James Joyce");
+        addBook("20/01/2019","The Great Gatsby by F. Scott Fitzgerald");
+        addBook("26/05/2019","Moby Dick by Herman Melville");
     }
 }
 
