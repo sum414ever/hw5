@@ -1,10 +1,10 @@
+import library.*;
+
 import java.util.Scanner;
 
 public class RegistryRunner {
 
     public static void setDate() {
-        Registry reg = new Registry();
-        reg.loadRegister();
         System.out.println("Welcome to registry our library");
         System.out.println("Tell what you want: ");
         System.out.println("1. Add to register new book");
@@ -18,16 +18,20 @@ public class RegistryRunner {
         do {
             switch (scan) {
                 case 1:
-                    reg.addBookViaConsole();
+                    AddBookInConsole addBook = new AddBookInConsole();
+                    addBook.addBookViaConsole();
                     break;
                 case 2:
-                    reg.getDateInformation();
+                    GetDateInformation getDate = new GetDateInformation();
+                    getDate.getDateInformation();
                     break;
                 case 3:
-                    reg.getBookInformation();
+                    GetBookInformation getBook = new GetBookInformation();
+                    getBook.getBookInformation();
                     break;
                 case 4:
-                    reg.showBookByDate();
+                    ShowBookByDate showBook = new ShowBookByDate();
+                    showBook.showBookByDate();
                     break;
                 case 5:
                     System.exit(0);
