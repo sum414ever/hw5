@@ -2,7 +2,7 @@ package library;
 
 import java.util.Scanner;
 
-public class ListOfAllTookBooksByDate {
+public class BooksByDateInformationProvider {
     static String scan;
     Scanner sc = new Scanner(System.in);
 

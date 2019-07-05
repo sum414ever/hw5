@@ -2,7 +2,7 @@ package library;
 
 import java.util.Scanner;
 
-public class RegisterBookViaConsole {
+public class BookViaConsoleRegister {
     Scanner sc = new Scanner(System.in);
     static String scan;
     BookRegister bookRegister = new BookRegister();

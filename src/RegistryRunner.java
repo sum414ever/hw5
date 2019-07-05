@@ -17,7 +17,7 @@ public class RegistryRunner {
         do {
             switch (scan) {
                 case 1:
-                    RegisterBookViaConsole addBook = new RegisterBookViaConsole();
+                    BookViaConsoleRegister addBook = new BookViaConsoleRegister();
                     addBook.addBookViaConsole();
                     break;
                 case 2:
@@ -29,7 +29,7 @@ public class RegistryRunner {
                     getBook.getBookInformation();
                     break;
                 case 4:
-                    ListOfAllTookBooksByDate showBook = new ListOfAllTookBooksByDate();
+                    BooksByDateInformationProvider showBook = new BooksByDateInformationProvider();
                     showBook.showBookByDate();
                     break;
                 case 5:
