@@ -17,7 +17,7 @@ public class RegistryRunner {
         do {
             switch (scan) {
                 case 1:
-                    TakeBookViaConsole addBook = new TakeBookViaConsole();
+                    RegisterBookViaConsole addBook = new RegisterBookViaConsole();
                     addBook.addBookViaConsole();
                     break;
                 case 2:
