@@ -9,8 +9,8 @@ public class ListOfAllTookBooksByDate {
     public void showBookByDate() {
         System.out.println("Input date in format 'dd/mm/yyyy' ");
         scan = sc.next();
-        if (ListOfAllTookBooks.getAccounting().containsKey(scan)) {
-            System.out.println("On this date " + scan + " took this book " + ListOfAllTookBooks.getAccounting().get(scan));
+        if (AllTookBooks.getAccounting().containsKey(scan)) {
+            System.out.println("On this date " + scan + " took this book " + AllTookBooks.getAccounting().get(scan));
         } else System.out.println("On this date " + scan + " didn't take a book");
     }
 }

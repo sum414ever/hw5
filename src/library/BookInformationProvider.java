@@ -4,6 +4,6 @@ public class BookInformationProvider {
 
     public void getBookInformation() {
         System.out.println("\nAll issued books: ");
-        System.out.println(ListOfAllTookBooks.getAccounting().values());
+        System.out.println(AllTookBooks.getAccounting().values());
     }
 }
